@@ -12,7 +12,7 @@ import {
 } from '../common/tab/tabActions';
 
 const BASE_URL = 'http://localhost:3003/api';
-const INITIAL_VALUES = {};
+const INITIAL_VALUES = {credits: [{}], debts: [{}]};
 
 export function getList() {
     const request = axios.get(`${BASE_URL}/billingCycles`);
@@ -28,6 +28,10 @@ export function create(values) {
 
 export function update(values) {
     return submit(values, 'put');
+}
+
+export function remove(values) {
+    return submit(values, 'delete');
 }
 
 function submit(values, method) {
@@ -56,9 +60,29 @@ function submit(values, method) {
 
 export function showUpdate(billingCycle) {
     return [
-        showTabs('tabUpdate'), selectTab('tabUpdate'), initialize('billingCycleForm', billingCycle)
+        showTabs('tabUpdate'),
+        selectTab('tabUpdate'),
+        initialize('billingCycleForm', billingCycle)
     ];
 }
+
+export function showDelete(billingCycle) {
+    return [
+        showTabs('tabDelete'),
+        selectTab('tabDelete'),
+        initialize('billingCycleForm', billingCycle)
+    ];
+}
+
+// CRIAR UM MÉTODO 'showTab' QUE RECEBE OS IDS DAS ABAS 
+// QUE SERÃO EXIBIDAS E REUTILIZAR NO LUGAR DOS MÉTODOS 
+//'showUpdate', 'showDelete'...
+// export function showTab(showTabIds, selectTabId) {
+//     return [
+//         (...)
+//         initialize('billingCycleForm', billingCycle)
+//     ];
+// }
 
 export function init() {
     return [
