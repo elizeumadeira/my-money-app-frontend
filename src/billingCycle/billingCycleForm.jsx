@@ -26,12 +26,9 @@ class BillingCycleForm extends Component {
         return (
             <form role='form' onSubmit={handleSubmit}>
                 <div className='box-body'>
-                    <Field name='name' component={labelAndInput} type='text' readOnly={readOnly}
-                        label="Nome" cols='12 4' placeholder='Informe o Nome' />
-                    <Field name='month' component={labelAndInput} type='number' readOnly={readOnly}
-                        label="Mês" cols='12 4' placeholder='Informe o Mês' />
-                    <Field name='year' component={labelAndInput} type='number' readOnly={readOnly}
-                        label="Mês" cols='12 4' placeholder='Informe o Ano' />
+                    <Field name='name' component={labelAndInput} type='text' readOnly={readOnly} label="Nome" cols='12 4' placeholder='Informe o Nome' />
+                    <Field name='month' component={labelAndInput} type='number' readOnly={readOnly} label="Mês" cols='12 4' placeholder='Informe o Mês' />
+                    <Field name='year' component={labelAndInput} type='number' readOnly={readOnly} label="Mês" cols='12 4' placeholder='Informe o Ano' />
                     <Summary credit={sumOfCredits} debt={sumOfDebits} />
                     <ItemList cols='12 6' list={credits} readOnly={readOnly} field='credits' legend='Créditos' />
                     <ItemList cols='12 6' list={debts} readOnly={readOnly} field='debts' legend='Débitos' showStatus={true} />
