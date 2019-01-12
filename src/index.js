@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
+import * as serviceWorker from './serviceWorker';
 
 import promise from 'redux-promise';
 import multi from 'redux-multi';
@@ -17,3 +18,5 @@ ReactDOM.render(
         <Routes />
     </Provider>
     , document.getElementById('app'));
+
+serviceWorker.unregister();
